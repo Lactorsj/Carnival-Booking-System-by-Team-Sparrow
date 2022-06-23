@@ -5,15 +5,21 @@ namespace App\Http\Controllers;
 use App\Models\Booking;
 use Illuminate\Http\Request;
 
-global $CARNIVAL_DAYS,$CURRENT_DAY;
-$CARNIVAL_DAYS = 5;
-$CURRENT_DAY = 0;
-
 class BookingController extends Controller
 {
     public function BookingView()
     {
         return view('BookingView');
+    }
+
+    public function DayIsOk()
+    {
+        if($_ENV['CURRENT_DAY'] < $_ENV['CARNIVAL_DAYS'])
+        {
+            return true;
+        }
+        else
+            return false;
     }
 
     public function access($user,$day)
