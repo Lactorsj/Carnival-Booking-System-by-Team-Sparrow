@@ -25,7 +25,7 @@ Route::get('/booking', function () {
     return view('BookingView');
 })->middleware(['auth'])->name('booking');
 
-Route::get('/booking/ok',[\App\Http\Controllers\BookingController::class,'DayIsOk'])
-->middleware(['auth'])->name('DayIsOk');
+Route::get('/booking/DayBooking',[\App\Http\Controllers\BookingController::class,'access'])
+->middleware(['auth'])->name('DayBooking');
 
 require __DIR__ . '/auth.php';

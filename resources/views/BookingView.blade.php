@@ -12,7 +12,7 @@
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 bg-white border-b border-gray-300">
                         DAY 1
-                        <a href="/login">
+                        <a href="{{ route('DayBooking',array('user'=>'Chenghanchang','day'=>2)) }}">
                         <button type="button" style="float:right">Book Me!</button>
                         </a>
                     </div>

@@ -22,36 +22,13 @@ class BookingController extends Controller
             return false;
     }
 
-    public function access($user,$day)
+    public function access(Request $request)
     {
+        $request = request();
         $Info = new Booking();
-        if($Info->InfoSearch($day) > 10)
-        {
-            header('http://localhost:8000/booking');
-            echo "<script>alert('已达单日客流量最大值')</script>";
-            exit;
-        }
-        else
-        {
-            if($Info->InfoSearchPersonalInday($user,$day) > 1)
-            {
-                header('http://localhost:8000/booking');
-                echo "<script>alert('已达单人单日预约最大值')</script>";
-                exit;
-            }
-            else if($Info->InfoSearchPersonaltotal($user) > 3)
-            {
-                header('http://localhost:8000/booking');
-                echo "<script>alert('已达单人狂欢节期间预约最大值')</script>";
-                exit;
-            }
-            else
-            {
-                $Info->InfoInsert($user,$day);
-                header('http://localhost:8000/dashboard');
-                echo "<script>alert('预约成功')</script>";
-                exit;
-            }
-        }
+        $Info->InfoInsert($request->input('user'),$request->input('day'));
+        header('refresh:0.1;url=http://localhost:8000/dashboard');
+        echo "<script>alert('预约成功')</script>";
+        exit();
     }
 }
