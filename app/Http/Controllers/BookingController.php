@@ -26,7 +26,7 @@ class BookingController extends Controller
     {
         $request = request();
         $Info = new Booking();
-        if($Info->InfoSearch($request->input('day')) > 9)
+        if($Info->InfoSearch($request->input('day')) >= $_ENV['MaxInDay'])
         {
             header('refresh:0.1;url=http://localhost:8000/booking');
             echo "<script>alert('已达单日客流量最大值')</script>";
@@ -34,13 +34,13 @@ class BookingController extends Controller
         }
         else
         {
-            if($Info->InfoSearchPersonalInday($request->input('user'),$request->input('day')) > 0)
+            if($Info->InfoSearchPersonalInday($request->input('user'),$request->input('day')) >= $_ENV['MaxInDayPersonal'])
             {
                 header('refresh:0.1;url=http://localhost:8000/booking');
                 echo "<script>alert('已达单人单日预约最大值')</script>";
                 exit();
             }
-            else if($Info->InfoSearchPersonaltotal($request->input('user')) > 2)
+            else if($Info->InfoSearchPersonaltotal($request->input('user')) >= $_ENV['MaxInCarnivalPersonal'])
             {
                 header('refresh:0.1;url=http://localhost:8000/booking');
                 echo "<script>alert('已达单人狂欢节期间预约最大值')</script>";
