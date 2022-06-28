@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Booking;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BookingController extends Controller
 {
@@ -25,6 +26,7 @@ class BookingController extends Controller
     public function access(Request $request)
     {
         $request = request();
+        $username = Auth::user()->name;
         $Info = new Booking();
         if($Info->InfoSearch($request->input('day')) >= $_ENV['MaxInDay'])
         {
@@ -34,21 +36,21 @@ class BookingController extends Controller
         }
         else
         {
-            if($Info->InfoSearchPersonalInday($request->input('user'),$request->input('day')) >= $_ENV['MaxInDayPersonal'])
-            {
-                header('refresh:0.1;url=http://localhost:8000/booking');
-                echo "<script>alert('已达单人单日预约最大值')</script>";
-                exit();
-            }
-            else if($Info->InfoSearchPersonaltotal($request->input('user')) >= $_ENV['MaxInCarnivalPersonal'])
+            if($Info->InfoSearchPersonaltotal($username) >= $_ENV['MaxInCarnivalPersonal'])
             {
                 header('refresh:0.1;url=http://localhost:8000/booking');
                 echo "<script>alert('已达单人狂欢节期间预约最大值')</script>";
                 exit();
             }
+            else if($Info->InfoSearchPersonalInday($username,$request->input('day')) >= $_ENV['MaxInDayPersonal'])
+            {
+                header('refresh:0.1;url=http://localhost:8000/booking');
+                echo "<script>alert('已达单人单日预约最大值')</script>";
+                exit();
+            }
             else
             {
-                $Info->InfoInsert($request->input('user'),$request->input('day'));
+                $Info->InfoInsert($username,$request->input('day'));
                 header('refresh:0.1;url=http://localhost:8000/dashboard');
                 echo "<script>alert('预约成功')</script>";
                 exit();
