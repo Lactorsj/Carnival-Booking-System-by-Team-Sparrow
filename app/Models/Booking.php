@@ -23,7 +23,7 @@ class Booking extends Model
                 $invitationcode .= $str[$rand];
             }
             if(DB::table('reservation')->where('invitation','=',$invitationcode)
-            ->count() == 0)
+                    ->count() == 0)
             {
                 break;
             }
@@ -36,7 +36,7 @@ class Booking extends Model
         $bookinfo = new Booking();
         $userid = DB::table('users')->where('name',$user)->value('id');
         $invicode = $bookinfo->CreateInvitationCode();
-        DB::insert("insert into reservation(user_id,reserveDate,invitation) 
+        DB::insert("insert into reservation(user_id,reserveDate,invitation)
         values($userid,$day,'$invicode')");
     }
 
@@ -50,7 +50,7 @@ class Booking extends Model
     {
         $userid = DB::table('users')->where('name',$user)->value('id');
         $PersonalnumInday = DB::table('reservation')->where('user_id',$userid)
-        ->where('reserveDate',$day)->count();
+            ->where('reserveDate',$day)->count();
         return $PersonalnumInday;
     }
 

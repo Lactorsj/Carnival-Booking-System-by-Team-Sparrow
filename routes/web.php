@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\CheckIn;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,6 +20,10 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+Route::get('/CheckIn', [CheckIn::class, 'signIn']);
+
+Route::post('update', [CheckIn::class, 'update']);
 
 Route::get('/booking', function () {
     return view('BookingView');
