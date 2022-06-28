@@ -34,7 +34,7 @@ class Booking extends Model
     public function InfoInsert($user,$day)
     {
         $bookinfo = new Booking();
-        $userid = DB::table('users')->where('name','=',$user)->value('id');
+        $userid = DB::table('users')->where('name',$user)->value('id');
         $invicode = $bookinfo->CreateInvitationCode();
         DB::insert("insert into reservation(user_id,reserveDate,invitation) 
         values($userid,$day,'$invicode')");
@@ -48,7 +48,7 @@ class Booking extends Model
 
     public function InfoSearchPersonalInday($user,$day)
     {
-        $userid = DB::table('users')->where('id',$user)->get();
+        $userid = DB::table('users')->where('name',$user)->value('id');
         $PersonalnumInday = DB::table('reservation')->where('user_id',$userid)
         ->where('reserveDate',$day)->count();
         return $PersonalnumInday;
@@ -56,7 +56,7 @@ class Booking extends Model
 
     public function InfoSearchPersonaltotal($user)
     {
-        $userid = DB::table('users')->where('id',$user)->get();
+        $userid = DB::table('users')->where('name',$user)->value('id');
         $Personalnumtotal = DB::table('reservation')->where('user_id',$userid)->count();
         return $Personalnumtotal;
     }

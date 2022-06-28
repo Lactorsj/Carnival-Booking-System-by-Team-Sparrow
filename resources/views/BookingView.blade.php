@@ -12,7 +12,7 @@
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 bg-white border-b border-gray-300">
                         DAY 1
-                        <a href="{{ route('DayBooking',array('user'=>'Chenghanchang','day'=>2)) }}">
+                        <a href="{{ route('DayBooking',array('user'=>'Chenghanchang','day'=>1)) }}">
                         <button type="button" style="float:right">Book Me!</button>
                         </a>
                     </div>
@@ -33,7 +33,9 @@
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 bg-white border-b border-gray-200">
                         DAY 2
+                        <a href="{{ route('DayBooking',array('user'=>'Chenghanchang','day'=>2)) }}">
                         <button type="button" style="float:right">Book Me!</button>
+                        </a>
                     </div>
                 </div>
                 </div><br>
@@ -52,7 +54,9 @@
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 bg-white border-b border-gray-200">
                         DAY 3
+                        <a href="{{ route('DayBooking',array('user'=>'Chenghanchang','day'=>3)) }}">
                         <button type="button" style="float:right">Book Me!</button>
+                        </a>
                     </div>
                 </div>
                 </div><br>
@@ -71,7 +75,9 @@
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 bg-white border-b border-gray-200">
                         DAY 4
+                        <a href="{{ route('DayBooking',array('user'=>'Chenghanchang','day'=>4)) }}">
                         <button type="button" style="float:right">Book Me!</button>
+                        </a>
                     </div>
                 </div>
                 </div><br>
@@ -90,7 +96,9 @@
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 bg-white border-b border-gray-200">
                         DAY 5
+                        <a href="{{ route('DayBooking',array('user'=>'Chenghanchang','day'=>5)) }}">
                         <button type="button" style="float:right">Book Me!</button>
+                        </a>
                     </div>
                 </div>
                 </div><br>
