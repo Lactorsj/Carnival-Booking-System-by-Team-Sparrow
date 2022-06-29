@@ -11,7 +11,9 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-2 bg-white border-b border-gray-200">
-
+                    @if($number == 0)
+                    <p class="p-6 text-xl" align="center">No Reservation Yet</p>
+                    @else
                     <table cellpadding="10" cellspacing="10" align="center">
                         <thead>
                             <tr>
@@ -38,14 +40,14 @@
                             @endforeach
                         </tbody>
                     </table>
+                    @endif
                 </div>
             </div>
         </div>
     </div>
     <form style="text-align:center" method="get" action="{{ route('booking') }}">
-        <button class="p-2 bg-white border-b border-gray-300 ">Commit New Reservation</button>
+        <button class="p-2 bg-white border-b border-gray-300">Commit New Reservation</button>
     </form>
-    <div style=" height:100px " ></div>
-
+    <div style=" height:100px"></div>
 
 </x-app-layout>

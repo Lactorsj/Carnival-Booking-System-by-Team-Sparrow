@@ -1,6 +1,6 @@
 # PHP Final Project README.md
 
-<p align="center"><img src="https://i-s2.328888.xyz/2022/06/29/62bc68d9c4c00.png" width="400"></a></p>
+<p align="center"><img src="https://i-s2.328888.xyz/2022/06/29/62bc68d9c4c00.png" width="400"></p>
 
 <p align="center">
 <a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
@@ -25,10 +25,10 @@ Team Sparrow 2022 Member (for PHP Programming): CHEN Yuqi, CHENG Hanchang, KANG 
 
 |Name   | Assignment|
 | ---   | --- |
-|CHEN Yuqi| Set-up of the project, Log in/Register Page(by Laravel Breeze), the Homepage, Project Management by Git and README.md|
-|CHENG Hanchang|Booking page and its relatively features|
-|KANG Weihao|Check in Page and its relatively features|
-|WANG Jinghao|Dashboard Page and its relatively features|
+|CHEN Yuqi| Set-up of the project, Log in/Register Page(by Laravel Breeze), the Homepage and README.md|
+|CHENG Hanchang|Booking page and its relatively features, Database design|
+|KANG Weihao|Check in Page and its relatively features, Database design|
+|WANG Jinghao|Dashboard Page and its relatively features, Database design and Project Management by Git|
 
 
 ## Install Instruction
