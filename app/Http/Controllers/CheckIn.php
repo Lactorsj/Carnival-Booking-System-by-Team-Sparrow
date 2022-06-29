@@ -12,7 +12,7 @@ use App\Models\Reservation;
 use App\Models\User;
 
 class CheckIn extends Controller
-{   
+{
     public function signIn(Request $request)
     {
         return view('CheckIn', ['carnival_title' => 'test']);
@@ -24,8 +24,6 @@ class CheckIn extends Controller
             'code' => 'required',
             'password' => 'required'
         ]);
-		
-
 
         $uc = Reservation::where('invitation', $request->code)->first();
         if (empty($uc)) {
@@ -34,7 +32,7 @@ class CheckIn extends Controller
         if ($uc['state'] == 1) {
             return view('info', ['url' => url('CheckIn'), 'message' => 'The invitation code has been used', 'jump_time' => 3]);
         }
-		
+
 		//获取当前天数
         if ($uc['reserveDate'] < env('CURRENT_DAY')) {
             return view('info', ['url' => url('CheckIn'), 'message' => 'Invite code expired', 'jump_time' => 3]);

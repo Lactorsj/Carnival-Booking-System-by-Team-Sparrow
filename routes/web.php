@@ -17,9 +17,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::get('/dashboard', [\App\Http\Controllers\DashboardController::class,'dashboard'])
+    ->middleware(['auth'])->name('dashboard');
+
+Route::get('/dashboard/InvDelete', [\App\Http\Controllers\DashboardController::class,'InvDelete'])
+    ->middleware(['auth'])->name('InvDelete');
 
 Route::get('/CheckIn', [CheckIn::class, 'signIn'])->name('checkin');
 

@@ -34,8 +34,8 @@
           <form style="margin-top:50px" method="POST" action="/update">
             @csrf
             <div class="form-group">
-              <label for="exampleInputEmail1">Invite Code</label>
-              <input type="text" class="form-control" name="code" value="{{ old('code') }}" placeholder="Invite Code">
+              <label for="exampleInputEmail1">Invitation Code</label>
+              <input type="text" class="form-control" name="code" value="{{ old('code') }}" placeholder="Invitation Code">
             </div>
             <div class="form-group">
               <label for="exampleInputPassword1">Password</label>
