@@ -29,18 +29,18 @@ class CheckIn extends Controller
 
         $uc = Reservation::where('invitation', $request->code)->first();
         if (empty($uc)) {
-            return view('info', ['url' => url('CheckIn'), 'message' => '没有找到该邀请码', 'jump_time' => 3]);
+            return view('info', ['url' => url('CheckIn'), 'message' => 'Invite code not found', 'jump_time' => 3]);
         }
         if ($uc['state'] == 1) {
-            return view('info', ['url' => url('CheckIn'), 'message' => '该邀请码已使用', 'jump_time' => 3]);
+            return view('info', ['url' => url('CheckIn'), 'message' => 'The invitation code has been used', 'jump_time' => 3]);
         }
 		
 		//获取当前天数
         if ($uc['reserveDate'] < env('CURRENT_DAY')) {
-            return view('info', ['url' => url('CheckIn'), 'message' => '该邀请码过期了', 'jump_time' => 3]);
+            return view('info', ['url' => url('CheckIn'), 'message' => 'Invite code expired', 'jump_time' => 3]);
         }
 		if ($uc['reserveDate'] > env('CURRENT_DAY')) {
-            return view('info', ['url' => url('CheckIn'), 'message' => '该邀请码不在使用期内', 'jump_time' => 3]);
+            return view('info', ['url' => url('CheckIn'), 'message' => 'The invitation code is not in use', 'jump_time' => 3]);
         }
 
         $user = User::find($uc['user_id']);
@@ -50,10 +50,10 @@ class CheckIn extends Controller
 
             Reservation::where('reserve_id', $uc['reserve_id'])->update(['state' => 1]);
 
-            return view('success', ['url' => url('CheckIn'), 'message' => '签到成功', 'jump_time' => 3, 'uname' => $user['name']]);
+            return view('success', ['url' => url('CheckIn'), 'message' => 'signin success', 'jump_time' => 3, 'uname' => $user['name']]);
         }
 
-        return view('info', ['url' => url('CheckIn'), 'message' => '密码错误', 'jump_time' => 3]);
+        return view('info', ['url' => url('CheckIn'), 'message' => 'password error', 'jump_time' => 3]);
     }
 
     public function CheckOk()

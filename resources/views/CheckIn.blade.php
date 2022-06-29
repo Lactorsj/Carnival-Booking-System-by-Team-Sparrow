@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-  <title>签到</title>
+  <title>Sign In</title>
 
   <!-- Bootstrap -->
 
@@ -19,7 +19,7 @@
   <div class="row body">
     <div class="box">
         <div class="max-w-6xl mx-auto sm:px-6 lg:px-8" style="border: 1px solid #ddd;padding:50px;margin-top:50px;">
-          <h2 style="margin-top:50px;text-align:center;">签到</h2>
+          <h2 style="margin-top:50px;text-align:center;">Sign In</h2>
           @if ($errors->any())
               <div class="alert alert-danger" role="alert">
                   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -34,15 +34,15 @@
           <form style="margin-top:50px" method="POST" action="/update">
             @csrf
             <div class="form-group">
-              <label for="exampleInputEmail1">邀请码</label>
-              <input type="text" class="form-control" name="code" value="{{ old('code') }}" placeholder="邀请码">
+              <label for="exampleInputEmail1">Invite Code</label>
+              <input type="text" class="form-control" name="code" value="{{ old('code') }}" placeholder="Invite Code">
             </div>
             <div class="form-group">
-              <label for="exampleInputPassword1">密码</label>
-              <input type="password" class="form-control" name="password" value="" placeholder="密码">
+              <label for="exampleInputPassword1">Password</label>
+              <input type="password" class="form-control" name="password" value="" placeholder="Password">
             </div>
-            <button style="width: 30%;" type="submit" class="btn btn-success">签&nbsp;&nbsp;到</button>
-            <button type="reset" class="btn btn-warning">重&nbsp;&nbsp;置</button>
+            <button style="width: 30%;" type="submit" class="btn btn-success">Sign&nbsp;&nbsp;In</button>
+            <button type="reset" class="btn btn-warning">Reset</button>
           </form>
 
             </div>
