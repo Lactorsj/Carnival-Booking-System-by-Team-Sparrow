@@ -12,16 +12,16 @@ class Dashboard extends Model
 
     public function SearchInvitation($user){
         $userid = DB::table('users')->where('name',$user)->value('id');
-        $invitationList =  DB::table('reservation')->select('reserve_id','reserveDate','invitation','state')
-            ->where('user_id',$userid)->orderBy('reserveDate','desc')->get();
+        $invitationList =  DB::table('reservation')->select('reserve_id','reserve_date','invitation','state')
+            ->where('user_id',$userid)->orderBy('reserve_date','desc')->get();
 
         return $invitationList;
     }
 
     public function InvitationNum($user){
         $userid = DB::table('users')->where('name',$user)->value('id');
-        $invitationNum =  DB::table('reservation')->select('reserve_id','reserveDate','invitation','state')
-            ->where('user_id',$userid)->orderBy('reserveDate','desc')->count();
+        $invitationNum =  DB::table('reservation')->select('reserve_id','reserve_date','invitation','state')
+            ->where('user_id',$userid)->orderBy('reserve_date','desc')->count();
         return $invitationNum;
     }
 

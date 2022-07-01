@@ -16,14 +16,7 @@ class DashboardController extends Controller
         $num = $dashboard->InvitationNum($username);
         $invitationList = $dashboard->SearchInvitation($username);
 
-        if ($num == 0){
-            return view('dashboard', ['number' => 0, 'invList' => $invitationList]);
-        }else{
-//            foreach($invitationList as $key=>$value){
-//                echo "reserve date：{$value->reserveDate},invitation code:{$value->invitation}, {$value->state}<br/>";
-//            }
-            return view('dashboard', ['number' => 1, 'invList' => $invitationList]);
-        }
+        return view('dashboard', ['number' => $num, 'invList' => $invitationList]);
     }
 
     public function InvDelete(Request $request){

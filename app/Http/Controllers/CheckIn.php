@@ -33,11 +33,11 @@ class CheckIn extends Controller
             return view('info', ['url' => url('CheckIn'), 'message' => 'The invitation code has been used', 'jump_time' => 3]);
         }
 
-		//获取当前天数
-        if ($uc['reserveDate'] < env('CURRENT_DAY')) {
+        //获取当前天数
+        if ($uc['reserve_date'] < env('CURRENT_DAY')) {
             return view('info', ['url' => url('CheckIn'), 'message' => 'Invite code expired', 'jump_time' => 3]);
         }
-		if ($uc['reserveDate'] > env('CURRENT_DAY')) {
+        if ($uc['reserve_date'] > env('CURRENT_DAY')) {
             return view('info', ['url' => url('CheckIn'), 'message' => 'The invitation code is not in use', 'jump_time' => 3]);
         }
 

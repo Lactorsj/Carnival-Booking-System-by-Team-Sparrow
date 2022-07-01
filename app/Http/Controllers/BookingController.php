@@ -31,7 +31,7 @@ class BookingController extends Controller
         if($Info->InfoSearch($request->input('day')) >= $_ENV['MaxInDay'])
         {
             header('refresh:0.1;url=http://localhost:8000/booking');
-            echo "<script>alert('已达单日客流量最大值')</script>";
+            echo "<script>alert('It has reached its maximum daily passenger flow')</script>";
             exit();
         }
         else
@@ -39,20 +39,20 @@ class BookingController extends Controller
             if($Info->InfoSearchPersonaltotal($username) >= $_ENV['MaxInCarnivalPersonal'])
             {
                 header('refresh:0.1;url=http://localhost:8000/booking');
-                echo "<script>alert('已达单人狂欢节期间预约最大值')</script>";
+                echo "<script>alert('You have reached the maximum number of reservations during Tech Carnival')</script>";
                 exit();
             }
             else if($Info->InfoSearchPersonalInday($username,$request->input('day')) >= $_ENV['MaxInDayPersonal'])
             {
                 header('refresh:0.1;url=http://localhost:8000/booking');
-                echo "<script>alert('已达单人单日预约最大值')</script>";
+                echo "<script>alert('You have reached the maximum number of daily reservations')</script>";
                 exit();
             }
             else
             {
                 $Info->InfoInsert($username,$request->input('day'));
                 header('refresh:0.1;url=http://localhost:8000/dashboard');
-                echo "<script>alert('预约成功')</script>";
+                echo "<script>alert('Book Successfully')</script>";
                 exit();
             }
         }
