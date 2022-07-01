@@ -46,7 +46,7 @@
         </div>
     </div>
     <form style="text-align:center" method="get" action="{{ route('booking') }}">
-        <button class="p-2 bg-white border-b border-gray-300">Commit New Reservation</button>
+        <button class="p-2 bg-white border-b border-gray-30 hover:bg-gray-50">Commit New Reservation</button>
     </form>
     <div style=" height:100px"></div>
 

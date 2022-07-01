@@ -23,7 +23,7 @@ Route::get('/dashboard', [\App\Http\Controllers\DashboardController::class,'dash
 Route::get('/dashboard/InvDelete', [\App\Http\Controllers\DashboardController::class,'InvDelete'])
     ->middleware(['auth'])->name('InvDelete');
 
-Route::get('/CheckIn', [CheckIn::class, 'signIn'])->name('checkin');
+Route::get('/CheckIn', [CheckIn::class, 'CheckIn'])->name('checkin');
 
 Route::post('update', [CheckIn::class, 'update']);
 

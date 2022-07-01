@@ -1,5 +1,6 @@
 <div id="applyFor" style="text-align: center; width: 500px; margin: 100px auto;">
-      {{ $message }}, The page will jump to<a href="{{ $url }}" style="color: red">check-in page</a>in<span class="loginTime" style="color: red">{{ $jump_time }}</span>seconds
+      {{ $message }}, The page will jump to&nbsp;<a href="{{ $url }}" style="color: red">check-in page</a>&nbsp;&nbsp;in&nbsp;
+    <span class="loginTime" style="color: red">{{ $jump_time }}</span>&nbsp;seconds
   </div>
 
 

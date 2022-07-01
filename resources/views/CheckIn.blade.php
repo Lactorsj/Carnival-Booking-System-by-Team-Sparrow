@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-  <title>Sign In</title>
+  <title>Check In</title>
 
   <!-- Bootstrap -->
 
@@ -19,7 +19,7 @@
   <div class="row body">
     <div class="box">
         <div class="max-w-6xl mx-auto sm:px-6 lg:px-8" style="border: 1px solid #ddd;padding:50px;margin-top:50px;">
-          <h2 style="margin-top:50px;text-align:center;">Sign In</h2>
+          <h2 style="margin-top:50px;text-align:center;">Check In</h2>
           @if ($errors->any())
               <div class="alert alert-danger" role="alert">
                   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -41,7 +41,7 @@
               <label for="exampleInputPassword1">Password</label>
               <input type="password" class="form-control" name="password" value="" placeholder="Password">
             </div>
-            <button style="width: 30%;" type="submit" class="btn btn-success">Sign&nbsp;&nbsp;In</button>
+            <button style="width: 30%;" type="submit" class="btn btn-success">Check&nbsp;&nbsp;In</button>
             <button type="reset" class="btn btn-warning">Reset</button>
           </form>
 
