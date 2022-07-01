@@ -13,7 +13,7 @@ use App\Models\User;
 
 class CheckIn extends Controller
 {
-    public function signIn(Request $request)
+    public function CheckIn(Request $request)
     {
         return view('CheckIn', ['carnival_title' => 'test']);
     }
@@ -48,7 +48,7 @@ class CheckIn extends Controller
 
             Reservation::where('reserve_id', $uc['reserve_id'])->update(['state' => 1]);
 
-            return view('success', ['url' => url('CheckIn'), 'message' => 'signin success', 'jump_time' => 3, 'uname' => $user['name']]);
+            return view('success', ['url' => url('CheckIn'), 'message' => 'Checkin success', 'jump_time' => 3, 'uname' => $user['name']]);
         }
 
         return view('info', ['url' => url('CheckIn'), 'message' => 'password error', 'jump_time' => 3]);
@@ -58,6 +58,4 @@ class CheckIn extends Controller
     {
         return 'Welcome ';
     }
-
 }
-
