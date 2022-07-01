@@ -16,28 +16,28 @@
                     @else
                     <table cellpadding="10" cellspacing="10" align="center">
                         <thead>
-                        <tr>
-                            <th class="text-xl" width="300px" height="60px">Reserved Date</th>
-                            <th class="text-xl" width="400px" height="60px">Invitation Code</th>
-                            <th class="text-xl" width="300px" height="60px"></th>
-                        </tr>
+                            <tr>
+                                <th class="text-xl" width="300px" height="60px">Reserved Date</th>
+                                <th class="text-xl" width="400px" height="60px">Invitation Code</th>
+                                <th class="text-xl" width="300px" height="60px"></th>
+                            </tr>
                         </thead>
                         <tbody>
-                        @foreach ($invList as $inv)
-                        <tr>
-                            <td height="60px" align="center">{{ $inv->reserve_date }}</td>
-                            <td height="60px" align="center">{{ $inv->invitation }}</td>
-                            <td height="60px" align="center" class="text-cyan-400">
-                                @if ($inv->reserve_date < $_ENV['CURRENT_DAY'] && $inv->state == 0)
-                                <p class="text-gray-400">Passed</p>
-                                @elseif ($inv->state == 1)
-                                <p class="text-gray-400">Verified</p>
-                                @elseif ($inv->reserve_date >= $_ENV['CURRENT_DAY'] && $inv->state == 0)
-                                <a class="p-2 text-gray-700 hover:text-gray-900 hover:bg-gray-100" href="{{ route('InvDelete',array('invId'=> $inv->reserve_id )) }}">Cancel</a>
-                                @endif
-                            </td>
-                        </tr>
-                        @endforeach
+                            @foreach ($invList as $inv)
+                            <tr>
+                                <td height="60px" align="center">{{ $inv->reserve_date }}</td>
+                                <td height="60px" align="center">{{ $inv->invitation }}</td>
+                                <td height="60px" align="center" class="text-cyan-400">
+                                    @if ($inv->reserve_date < $_ENV['CURRENT_DAY'] && $inv->state == 0)
+                                        <p class="text-gray-400">Passed</p>
+                                        @elseif ($inv->state == 1)
+                                        <p class="text-gray-400">Verified</p>
+                                        @elseif ($inv->reserve_date >= $_ENV['CURRENT_DAY'] && $inv->state == 0)
+                                        <a class="p-2 text-gray-700 hover:text-gray-900 hover:bg-gray-100" href="{{ route('InvDelete',array('invId'=> $inv->reserve_id )) }}">Cancel</a>
+                                        @endif
+                                </td>
+                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                     @endif

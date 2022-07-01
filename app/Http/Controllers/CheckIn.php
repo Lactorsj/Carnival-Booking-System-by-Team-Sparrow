@@ -58,6 +58,4 @@ class CheckIn extends Controller
     {
         return 'Welcome ';
     }
-
 }
-

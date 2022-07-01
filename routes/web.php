@@ -17,10 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', [\App\Http\Controllers\DashboardController::class,'dashboard'])
+Route::get('/dashboard', [\App\Http\Controllers\DashboardController::class, 'dashboard'])
     ->middleware(['auth'])->name('dashboard');
 
-Route::get('/dashboard/InvDelete', [\App\Http\Controllers\DashboardController::class,'InvDelete'])
+Route::get('/dashboard/InvDelete', [\App\Http\Controllers\DashboardController::class, 'InvDelete'])
     ->middleware(['auth'])->name('InvDelete');
 
 Route::get('/CheckIn', [CheckIn::class, 'CheckIn'])->name('checkin');
