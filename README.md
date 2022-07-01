@@ -29,5 +29,68 @@ Team Sparrow 2022 Member (for PHP Programming): CHEN Yuqi, CHENG Hanchang, KANG 
 |KANG Weihao|Check in Page and its relatively features, Database design|
 |WANG Jinghao|Dashboard Page and its relatively features, Database design and Project Management by Git|
 
+---
 
 ## Install Instruction
+
+
+
+### Step #1 Install Laravel Framework to your machine
+
+Make sure you have already install Composer and PHP v8, Run these command below in your terminal(like Powershell)
+
+```
+composer create-project "laravel/laravel" example-app
+
+```
+After running these command, a folder named 'example-app' with Laravel v9 inside will be created.
+
+Only the '\vendor' folder and the file inside will be used.
+
+
+### Step #2 Use Git-clone to get the code from Github
+
+```
+git clone git@github.com:Lactorsj/Carnival-Booking-System-by-Team-Sparrow.git
+```
+
+A folder named "Carnival-Booking-System-by-Team-Sparrow" with the project code inside will be created, and this is the project root directory, you can rename it anytime.
+
+### Step #3 Setup Database
+
+You should create a database first. 
+
+E.g. for Mysql you can use this
+
+```mysql
+CREATE DATABASE test;
+```
+
+After running this command, a database named 'test' will be created.
+
+Open ".env" file in the root directory, modify Line 11-16 to your config.
+
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=yourDatabaseName
+DB_USERNAME=yourUserName
+DB_PASSWORD=yourPassWord
+```
+
+### Step #4 Copy the 'vendor' folder in the Laravel framework just downloaded through Composer to the project root directory
+
+*This is because the vendor is too big for Git.*
+
+### Step #5 Database Migration
+
+Run these command below in your terminal
+
+```
+cd .\Carnival-Booking-System-by-Team-Sparrow\
+
+php artisan migrate
+```
+
+And that's all for the installation. You can run 'php artisan serve' to run.
