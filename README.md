@@ -1,13 +1,12 @@
 # PHP Final Project README.md
 
-<p align="center"><img src="https://i-s2.328888.xyz/2022/06/29/62bc68d9c4c00.png" width="400"></p>
+![Sparrow Logo](https://i-s2.328888.xyz/2022/06/29/62bc68d9c4c00.png)
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/Lactorsj/Carnival-Booking-System-by-Team-Sparrow)
+![GitHub](https://img.shields.io/github/license/Lactorsj/Carnival-Booking-System-by-Team-Sparrow)
+![GitHub language count](https://img.shields.io/github/languages/count/Lactorsj/Carnival-Booking-System-by-Team-Sparrow)
+[![GitHub issues](https://img.shields.io/github/issues/Lactorsj/Carnival-Booking-System-by-Team-Sparrow)](https://github.com/Lactorsj/Carnival-Booking-System-by-Team-Sparrow/issues)
 
 ## About Team Sparrow
 
