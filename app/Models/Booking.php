@@ -12,29 +12,27 @@ class Booking extends Model
 
     public function CreateInvitationCode()
     {
-        $str = array_merge(range('A','Z'));
-        while (true)
-        {
+        $str = array_merge(range('A', 'Z'));
+        while (true) {
             $invitationcode = '';
             $str_length = count($str);
-            for($i = 0;$i < 6;$i++)
-            {
-                $rand = mt_rand(0,$str_length - 1);
+            for ($i = 0; $i < 6; $i++) {
+                $rand = mt_rand(0, $str_length - 1);
                 $invitationcode .= $str[$rand];
             }
-            if(DB::table('reservation')->where('invitation','=',$invitationcode)
-                    ->count() == 0)
-            {
+            if (DB::table('reservation')->where('invitation', '=', $invitationcode)
+                ->count() == 0
+            ) {
                 break;
             }
         }
         return $invitationcode;
     }
 
-    public function InfoInsert($user,$day)
+    public function InfoInsert($user, $day)
     {
         $bookinfo = new Booking();
-        $userid = DB::table('users')->where('name',$user)->value('id');
+        $userid = DB::table('users')->where('name', $user)->value('id');
         $invicode = $bookinfo->CreateInvitationCode();
         DB::insert("insert into reservation(user_id,reserve_date,invitation)
         values($userid,$day,'$invicode')");
@@ -42,22 +40,22 @@ class Booking extends Model
 
     public function InfoSearch($day)
     {
-        $totalnum = DB::table('reservation')->where('reserve_date','=',$day)->count();
+        $totalnum = DB::table('reservation')->where('reserve_date', '=', $day)->count();
         return $totalnum;
     }
 
-    public function InfoSearchPersonalInday($user,$day)
+    public function InfoSearchPersonalInday($user, $day)
     {
-        $userid = DB::table('users')->where('name',$user)->value('id');
-        $PersonalnumInday = DB::table('reservation')->where('user_id',$userid)
-            ->where('reserve_date',$day)->count();
+        $userid = DB::table('users')->where('name', $user)->value('id');
+        $PersonalnumInday = DB::table('reservation')->where('user_id', $userid)
+            ->where('reserve_date', $day)->count();
         return $PersonalnumInday;
     }
 
     public function InfoSearchPersonaltotal($user)
     {
-        $userid = DB::table('users')->where('name',$user)->value('id');
-        $Personalnumtotal = DB::table('reservation')->where('user_id',$userid)->count();
+        $userid = DB::table('users')->where('name', $user)->value('id');
+        $Personalnumtotal = DB::table('reservation')->where('user_id', $userid)->count();
         return $Personalnumtotal;
     }
 }

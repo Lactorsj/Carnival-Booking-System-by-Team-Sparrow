@@ -10,23 +10,26 @@ class Dashboard extends Model
 {
     use HasFactory;
 
-    public function SearchInvitation($user){
-        $userid = DB::table('users')->where('name',$user)->value('id');
-        $invitationList =  DB::table('reservation')->select('reserve_id','reserve_date','invitation','state')
-            ->where('user_id',$userid)->orderBy('reserve_date','desc')->get();
+    public function SearchInvitation($user)
+    {
+        $userid = DB::table('users')->where('name', $user)->value('id');
+        $invitationList =  DB::table('reservation')->select('reserve_id', 'reserve_date', 'invitation', 'state')
+            ->where('user_id', $userid)->orderBy('reserve_date', 'desc')->get();
 
         return $invitationList;
     }
 
-    public function InvitationNum($user){
-        $userid = DB::table('users')->where('name',$user)->value('id');
-        $invitationNum =  DB::table('reservation')->select('reserve_id','reserve_date','invitation','state')
-            ->where('user_id',$userid)->orderBy('reserve_date','desc')->count();
+    public function InvitationNum($user)
+    {
+        $userid = DB::table('users')->where('name', $user)->value('id');
+        $invitationNum =  DB::table('reservation')->select('reserve_id', 'reserve_date', 'invitation', 'state')
+            ->where('user_id', $userid)->orderBy('reserve_date', 'desc')->count();
         return $invitationNum;
     }
 
-    public function DeleteInvatation($ReserveId){
-        $ans = DB::table('reservation')->where('reserve_id',$ReserveId)->delete();
+    public function DeleteInvatation($ReserveId)
+    {
+        $ans = DB::table('reservation')->where('reserve_id', $ReserveId)->delete();
         return $ans;
     }
 }
